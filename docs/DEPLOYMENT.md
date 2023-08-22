@@ -74,7 +74,7 @@ heroku ps   # Display dyno status
 
 This setup automatically deploys the latest commit in the master branch to Heroku if the tests succeed:
 
-1. Open the GitLab settings `Settings > CI / CD > Variables` (e.g., https://git.chalmers.se/courses/dit341/group-00-web/-/settings/ci_cd)
+1. Open the GitLab settings `Settings > CI / CD > Variables` (e.g., https://git.chalmers.se/courses/dit342/group-00-web/-/settings/ci_cd)
 2. Add a variable with the key `HEROKU_APP_NAME`. As value, enter the name of your app shown on the first line when running `heroku apps:info`. It is also visible in the Heroku app settings (https://dashboard.heroku.com/apps/your-app-name/settings). Example above: `aqueous-crag-12345`
 3. Add a variable with the key `HEROKU_API_KEY`. As value, enter the `API Key` of your Heroku account in the Heroku account settings (https://dashboard.heroku.com/account). You can enable "Mask variable" to protect your secret API key.
 
