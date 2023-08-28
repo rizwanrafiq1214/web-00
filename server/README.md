@@ -22,7 +22,7 @@ Optional: Learn how to create such a project template in this [tutorial](https:/
 ## Requirements
 
 * [Node.js](https://nodejs.org/en/download/) (v18) => installation instructions for [Linux](https://github.com/nodesource/distributions), use installers for macOS and Windows (don't forget to restart your Bash shell)
-* [MongoDB](https://www.mongodb.com/download-center/community?jmp=nav) (v4.4) must be running locally on port 27017 => installation instructions for [macOS](https://github.com/joe4dev/dit032-setup/blob/master/macOS.md#mongodb), [Windows](https://github.com/joe4dev/dit032-setup/blob/master/Windows.md#mongodb), [Linux](https://github.com/joe4dev/dit032-setup/blob/master/Linux.md#mongodb)
+* [MongoDB](https://www.mongodb.com/download-center/community?jmp=nav) (>=v4.4) must be running locally on port 27017 => installation instructions for [macOS](https://github.com/joe4dev/dit032-setup/blob/master/macOS.md#mongodb), [Windows](https://github.com/joe4dev/dit032-setup/blob/master/Windows.md#mongodb), [Linux](https://github.com/joe4dev/dit032-setup/blob/master/Linux.md#mongodb)
 * [Postman](https://www.getpostman.com/downloads/) (>=v8) for API testing
 
 ## Project setup
