@@ -40,7 +40,7 @@ app.get('/api/mytest', function (req, res) {
 
 app.get('/students/:myid', function(req, res) {
     const myid = req.params.myid
-    res.status(200).send({message_mine: `this is my ${{myid}} id`})
+    res.status(200).send({message: 'this is my key method '+myid})
 })
 
 // Catch all non-error handler for api (i.e., 404 Not Found)
