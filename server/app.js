@@ -38,6 +38,11 @@ app.get('/api/mytest', function (req, res) {
     res.json({'anothermessage': 'this is my test text'})
 })
 
+app.get('/students/:myid', function(req, res) {
+    const myid = req.params.myid
+    res.status(200).send({message_mine: `this is my ${{myid}} id`})
+})
+
 // Catch all non-error handler for api (i.e., 404 Not Found)
 app.use('/api/*', function (req, res) {
     res.status(404).json({ 'message': 'Not Found' });
