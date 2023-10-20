@@ -5,6 +5,18 @@ var path = require('path');
 var cors = require('cors');
 var history = require('connect-history-api-fallback');
 
+const animalSchema = new mongoose.Schema({
+    name: {
+      type: String,
+      required: true
+    }
+}, {
+    collection: 'animals'
+}
+);
+
+  const Animal = mongoose.model('animals', animalSchema);
+
 // Variables
 var mongoURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/animalDevelopmentDB';
 var port = process.env.PORT || 3000;
@@ -38,10 +50,36 @@ app.get('/api/mytest', function (req, res) {
     res.json({'anothermessage': 'this is my test text'})
 })
 
-app.get('/students/:myid', function(req, res) {
-    const myid = req.params.myid
-    res.status(200).send({message: 'this is my key method '+myid})
+
+// to get list of objects by using schema (defined here in the same file)
+app.get('/students', async function(req, res) {
+
+   try {
+    const animalList = await Animal.find({})
+    res.status(200).json({animalList})
+   } catch (err) {
+    res.status(500).json({message: "internal server error 2"})
+   }
 })
+
+// app post method to create object, by using schema (defined here in the same file)
+app.post('/students', async function(req, res) {
+
+    try {
+        const newAnimal = new Animal({
+            name: "test name 5"
+        })
+    
+    const animalCreated = await newAnimal.save()
+
+    res.status(201).json(animalCreated)
+
+    } catch (err){
+        res.status(500).json({err: "Internal Server Error 2"});
+    }
+    
+})
+
 
 // Catch all non-error handler for api (i.e., 404 Not Found)
 app.use('/api/*', function (req, res) {
