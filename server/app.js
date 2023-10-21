@@ -124,6 +124,20 @@ app.put('/camels/:id', function(req, res) {
     res.json(update_camels)
 });
 
+// L03:p30 - camels delete method 
+
+app.delete('/camels/:id', function(req, res) {
+    
+    var id = req.params.id
+    var camel = camels[id]
+    if (!camel){
+        res.send('item not found');
+    } else {
+    delete camels[id]
+    res.json({"item found & delted": camel})
+    }
+    
+});
 
 
 // Catch all non-error handler for api (i.e., 404 Not Found)
