@@ -11,7 +11,7 @@ const animalSchema = new mongoose.Schema({
       required: true
     }
 }, {
-    collection: 'animals'
+    collection: 'animals'   // this gives reference to the required collection 
 }
 );
 
@@ -62,6 +62,8 @@ app.get('/students', async function(req, res) {
    }
 })
 
+
+
 // app post method to create object, by using schema (defined here in the same file)
 app.post('/students', async function(req, res) {
 
@@ -79,6 +81,49 @@ app.post('/students', async function(req, res) {
     }
     
 })
+
+// L03:p19 - camels post method 
+const camels = []; // Camels storage array
+app.post('/camels', function(req, res) {
+    var new_camel = {
+        "_id": camels.length,
+        "color": req.body.color,
+        "position": req.body.position
+    }
+    camels.push(new_camel);
+    res.json(new_camel);
+});
+
+// L03:p19 - camels Get method 
+
+app.get('/camels', function(req, res) {
+    res.json({"camels": camels});
+});
+
+
+// L03:p19 - camels Get method 
+
+app.get('/camels/:id', function(req, res) {
+    
+    var id = req.params.id
+
+    res.json(camels[id]);
+});
+
+// L03:p26 - camels Put method 
+
+app.put('/camels/:id', function(req, res) {
+    
+    var id = req.params.id
+    var update_camels = {
+        "_id": id,
+        "color": req.body.color,
+        "position": req.body.position
+    }
+    camels[id] = update_camels
+    res.json(update_camels)
+});
+
 
 
 // Catch all non-error handler for api (i.e., 404 Not Found)
